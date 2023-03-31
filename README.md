@@ -1,4 +1,5 @@
 # Python easy Video transfer and Communication (PyVC)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](License)
 ![Python Video Comm image](example.gif "Python Video Comm on the PC")
 
 PyVideoComm is basic start code that makes sending and receiving video in two programs(or two PCs) very easily by Python.<br><br> You can transfer video files by PyVC easily.
