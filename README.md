@@ -20,10 +20,10 @@ And the receiver allows you to save files to receive with a UI.
 You may use some Pyinstaller or etc to create executable exe files for the video sender and video receiver.
 
 ## Communication between two PCs
-By default, the current code assumes that the transmitter/receiver is running on a same PC, but it may be possible to send/receive video from different PCs using TCP/IP as follws.        
+By default, the current code assumes that the transmitter/receiver is running on a same PC, but it may be possible to send/receive video from different PCs using TCP/IP as follows.        
 
-host = 'localhost' <br>
-port = 5000 
+* host = 'localhost' <br>
+* port = 5000 
 
 By setting host and port correctly, for e.g., setting the TCP/IP host address and port you will use for communication, it may extend the program to send/receive video from two PCs. 
 
