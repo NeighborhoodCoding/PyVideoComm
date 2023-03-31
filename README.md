@@ -27,7 +27,7 @@ By default, the current code assumes that the transmitter/receiver is running on
 
 By setting host and port correctly, for e.g., setting the TCP/IP host address and port you will use for communication, it may extend the program to send/receive video from two PCs. 
 
-The UI function that support setting host and port may be updated in the next commit or you could support by your pull request.
+The UI function that support setting host and port may be updated in the next commit or you could support this git by your pull request.
 
 <br>
 Thanks you.
