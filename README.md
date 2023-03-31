@@ -13,7 +13,9 @@ And the receiver allows you to save files to receive with a UI.
 
 ## Additional features
 (1) PyVideoComm_sender.py has a stop sending button, so you can stop the video transmission midway.
+
 (2) PyVideoComm_sender.py and PyVideoComm_receiver.py can send/receive repeatedly.
+
 (3) PyVideoComm_receiver.py has a function to display the received video in real time.
 
 ## Create your own executables.
