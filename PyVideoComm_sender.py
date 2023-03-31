@@ -12,23 +12,23 @@ class SendVideoThread(QThread):
         self.stopSending = False
 
     def run(self):
-        # socket 통신 설정
+        # Socket communication
         host = 'localhost'
         port = 5000
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.bind((host, port))
         s.listen(1)
 
-        # 수신자에게 영상 전송
+        # Send video to the receiver
         conn, addr = s.accept()
         print('Connected by', addr)
 
-        # 영상 프레임을 읽어서 소켓을 통해
+        # Reads the video(by cv2 instance)
         cap = cv2.VideoCapture(self.filename)
         frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-        # 해상도 정보 전송
+        # Send height and width information
         conn.sendall(frame_width.to_bytes(4, byteorder='big'))
         conn.sendall(frame_height.to_bytes(4, byteorder='big'))
 
@@ -37,11 +37,11 @@ class SendVideoThread(QThread):
             if not ret:
                 break
             data = frame.tobytes()
-            # RGB를 전송
+            # Send RGB
             conn.sendall(len(data).to_bytes(4, byteorder='big'))
             conn.sendall(data)
 
-        # 소켓 닫기
+        # Close socket
         conn.close()
         s.close()
         cap.release()
@@ -60,23 +60,22 @@ class Sender(QWidget):
         self.initUI()
 
     def initUI(self):
-        # 파일 선택 버튼 생성
+        # Choose File button
         self.fileBtn = QPushButton('Choose File', self)
         self.fileBtn.move(20, 20)
         self.fileBtn.clicked.connect(self.showDialog)
 
-        # 전송 시작 버튼 생성
+        # Send buttion
         self.sendBtn = QPushButton('Send', self)
         self.sendBtn.move(20, 60)
         self.sendBtn.clicked.connect(self.sendVideo)
 
-        # 전송 취소 버튼 생성
-        self.cancelBtn = QPushButton('Stop sending', self)
+        # Stop Sending buttion
+        self.cancelBtn = QPushButton('Stop Sending', self)
         self.cancelBtn.move(120, 60)
         self.cancelBtn.clicked.connect(self.cancelVideo)
         self.cancelBtn.setEnabled(False)
 
-        # 상태 표시줄 생성
         #self.statusBar = QStatusBar()
         layout = QVBoxLayout()
         #layout.addWidget(self.statusBar)
@@ -85,13 +84,13 @@ class Sender(QWidget):
         layout.addWidget(self.cancelBtn)
         self.setLayout(layout)
 
-        # 윈도우 크기 설정 및 화면에 표시
+        # windows size setting
         self.setGeometry(300, 300, 250, 150)
         self.setWindowTitle('PyVideoComm_sender')
         self.show()
 
     def showDialog(self):
-        # 파일 선택 대화 상자 열기
+        # File select, by UI
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(self, "Choose a video file", "", "MP4 Files (*.mp4)", options=options)
@@ -104,7 +103,7 @@ class Sender(QWidget):
 
     def sendVideo(self):
         if not hasattr(self, 'filename'):
-            # 파일을 선택하지 않았으면 에러 메시지 표시
+            # Display a error when a file is not selected.
             QMessageBox.critical(self, 'Error', 'Please select a file to send.')
             return
 
