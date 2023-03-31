@@ -7,9 +7,9 @@ PyVideoComm is basic start code that makes sending and receiving video in two pr
 PyVideoComm consists of two files: 
 PyVideoComm_sender.py and PyVideoComm_receiver.py.
 
-Each file corresponds to a transmitter/receiver and provides a basic file selection/saving UI. 
-The transmitter allows you to select files to send with a UI.
-And the receiver allows you to save files to receive with a UI.
+Each file corresponds to a transmitter/receiver and provides a file selection/file save UI.<br>
+The transmitter allows you to select files to send by a UI.<br>
+The receiver allows you to save the received files by a UI.
 
 ## User-friendly features
 (1) PyVideoComm_sender.py has a "Stop sending" button, so you can stop the transmission of video in the midway.<br>
