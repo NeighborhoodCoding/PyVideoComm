@@ -30,5 +30,5 @@ By setting host and port correctly, for e.g., setting the TCP/IP host address an
 The UI function that support setting host and port may be updated in the next commit or you could support this git by your pull request.
 
 <br>
-Thanks you.
+Thanks you. <br>
 NeighborhoodCoding, South Korea.
