@@ -1,7 +1,7 @@
-# Python Video Comm (PyVC)
+# Python Video Communication (PyVC)
 ![Python Video Comm image](example.gif "Python Video Comm on the PC")
 
-PyVideoComm is basic start code that makes sending and receiving video in two programs very easy by Python.
+PyVideoComm is basic start code that makes sending and receiving video in two programs very easy by Python. You can transfer video files very easily.
 
 ## Overview
 PyVideoComm consists of two files: 
